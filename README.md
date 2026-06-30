@@ -51,6 +51,22 @@ The following methodology was used during the assessment:
 5. Classified findings according to risk severity.
 6. Proposed remediation recommendations.
 
+## Security Findings
+
+The assessment identified the following potential security risks:
+
+- **Publicly accessible endpoints (High):** The tested API endpoints were accessible without authentication, allowing unrestricted access to data.
+
+- **Missing authentication (High):** No API keys, bearer tokens, or other authentication mechanisms were required to access the endpoints.
+
+- **Excessive data exposure (Medium):** The `/users` endpoint returned more information than may be necessary, including email addresses, phone numbers, company details, and addresses.
+
+- **Missing authorization controls (Medium):** No visible access control mechanisms were observed to restrict users from accessing information that could belong to other users in a production environment.
+
+- **No visible rate limiting (Low):** The API responses did not include any indication of rate limiting, which could allow excessive requests if implemented in a production system.
+
+- **Input validation could not be confirmed (Low):** Since JSONPlaceholder is a demonstration API, it was not possible to verify whether server side input validation was implemented.
+
 ## Recommendations
 
 The following recommendations were identified during the assessment:
